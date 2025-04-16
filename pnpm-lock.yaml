@@ -61,6 +61,15 @@ importers:
         specifier: ^6.2.0
         version: 6.2.6
 
+  packages/ui:
+    dependencies:
+      react:
+        specifier: ^19.0.0
+        version: 19.1.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.1.0(react@19.1.0)
+
 packages:
 
   /@ampproject/remapping@2.3.0:
