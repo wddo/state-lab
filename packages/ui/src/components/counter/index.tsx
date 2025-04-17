@@ -1,10 +1,9 @@
-import { HTMLAttributes } from "react";
-
-type CounterProps = {
+interface CounterProps {
   counter: number;
   onIncrement?: () => void;
   onReset?: () => void;
-} & HTMLAttributes<HTMLDivElement>;
+  className?: string;
+}
 
 export function Counter({
   counter,
