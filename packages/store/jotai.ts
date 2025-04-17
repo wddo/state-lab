@@ -1,11 +1,11 @@
 import { atom } from "jotai";
 
-export const counterAtom = atom(0);
+export const countAtom = atom(0);
 
 export const incrementAtom = atom(null, (get, set) => {
-  set(counterAtom, get(counterAtom) + 1);
+  set(countAtom, get(countAtom) + 1);
 });
 
 export const resetAtom = atom(null, (_, set) => {
-  set(counterAtom, 0);
+  set(countAtom, 0);
 });
