@@ -1,0 +1,9 @@
+{
+  "name": "@repo/store",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "dependencies": {
+    "jotai": "^2.12.3"
+  }
+}
