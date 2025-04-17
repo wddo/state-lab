@@ -1,17 +1,24 @@
-interface CounterProps {
+import { HTMLAttributes } from "react";
+
+type CounterProps = {
   counter: number;
   onIncrement?: () => void;
   onReset?: () => void;
-}
+} & HTMLAttributes<HTMLDivElement>;
 
-export function Counter({ counter, onIncrement, onReset }: CounterProps) {
+export function Counter({
+  counter,
+  onIncrement,
+  onReset,
+  ...rest
+}: CounterProps) {
   return (
-    <>
-      <div className="p-1">Counter : {counter}</div>
+    <div {...rest}>
+      <div className="m-1 bg-amber-400">Counter : {counter}</div>
       <div className="flex gap-1 p-1">
         <button onClick={onIncrement}>increment</button>
         <button onClick={onReset}>reset</button>
       </div>
-    </>
+    </div>
   );
 }
