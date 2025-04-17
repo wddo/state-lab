@@ -14,7 +14,7 @@ export function Counter({
 }: CounterProps) {
   return (
     <div {...rest}>
-      <div className="m-1 bg-amber-400">Counter : {counter}</div>
+      <div className="p-1">Counter : {counter}</div>
       <div className="flex gap-1 p-1">
         <button onClick={onIncrement}>increment</button>
         <button onClick={onReset}>reset</button>
