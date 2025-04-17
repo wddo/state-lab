@@ -1,4 +1,4 @@
-import { counterAtom, incrementAtom, resetAtom } from "@repo/store";
+import { counterAtom, incrementAtom, resetAtom } from "@repo/store/jotai";
 import { Counter } from "@repo/ui/components/counter";
 import { useAtom } from "jotai";
 
