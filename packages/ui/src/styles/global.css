@@ -1,15 +1,15 @@
-@import "./minireset.min";
+@config "../../../config/tailwind.config";
 
 @import "tailwindcss";
 @layer base, components, utilities;
-
-@config "../../../config/tailwind.config";
 
 @theme {
   --color-test-red: #fd6060;
 }
 
 @layer base {
+  @import "./minireset.min";
+
   :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
