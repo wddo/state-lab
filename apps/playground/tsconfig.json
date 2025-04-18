@@ -4,6 +4,7 @@
     "isolatedModules": true,
     "paths": {
       "@repo/ui/*": ["../../packages/ui/src/*"],
+      "@repo/store": ["../../packages/store/index.ts"],
       "@repo/store/*": ["../../packages/store/*"]
     }
   },
