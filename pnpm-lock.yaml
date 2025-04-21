@@ -76,6 +76,24 @@ importers:
         specifier: ^6.2.0
         version: 6.2.6(@types/node@22.14.1)
 
+  packages/api:
+    devDependencies:
+      '@repo/data':
+        specifier: workspace:*
+        version: link:../data
+
+  packages/data: {}
+
+  packages/hooks:
+    dependencies:
+      '@types/react':
+        specifier: ^19.0.10
+        version: 19.1.2
+    devDependencies:
+      '@repo/api':
+        specifier: workspace:*
+        version: link:../api
+
   packages/store:
     dependencies:
       jotai:
