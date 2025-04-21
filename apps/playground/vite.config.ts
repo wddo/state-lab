@@ -16,6 +16,18 @@ export default defineConfig({
         find: "@repo/store",
         replacement: path.resolve(__dirname, "../../packages/store"),
       },
+      {
+        find: "@repo/data",
+        replacement: path.resolve(__dirname, "../../packages/data"),
+      },
+      {
+        find: "@repo/api",
+        replacement: path.resolve(__dirname, "../../packages/api"),
+      },
+      {
+        find: "@repo/hooks",
+        replacement: path.resolve(__dirname, "../../packages/hooks"),
+      },
     ],
   },
 });

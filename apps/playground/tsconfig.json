@@ -1,11 +1,7 @@
 {
   "extends": ["../../tsconfig.base.json"],
   "compilerOptions": {
-    "isolatedModules": true,
-    "paths": {
-      "@repo/ui/*": ["../../packages/ui/src/*"],
-      "@repo/store/*": ["../../packages/store/*"]
-    }
+    "isolatedModules": true
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]
