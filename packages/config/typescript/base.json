@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": "../../../",
+    "paths": {
+      "@repo/ui/*": ["packages/ui/src/*"],
+      "@repo/config/*": ["packages/config/*"],
+      "@repo/store/*": ["packages/store/*"],
+      "@repo/data/*": ["packages/data/*"],
+      "@repo/api/*": ["packages/api/*"],
+      "@repo/hooks/*": ["packages/hooks/*"]
+    },
     "target": "ESNext",
     "module": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
