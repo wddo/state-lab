@@ -1,5 +1,5 @@
 export default {
-  content: ["@repo/ui/src/**/*.{ts,tsx}"],
+  content: ["../ui/src/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
