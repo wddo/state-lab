@@ -5,6 +5,7 @@
   "packageManager": "pnpm@8.14.1",
   "scripts": {
     "dev": "turbo run dev",
+    "dev:server": "pnpm --filter server start",
     "build": "turbo run build"
   },
   "devDependencies": {
