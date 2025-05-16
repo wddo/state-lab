@@ -110,6 +110,9 @@ importers:
 
   packages/store:
     dependencies:
+      '@repo/api':
+        specifier: workspace:*
+        version: link:../api
       jotai:
         specifier: ^2.12.3
         version: 2.12.4(@types/react@19.1.4)(react@19.1.0)

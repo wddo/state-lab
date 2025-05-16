@@ -1,4 +1,4 @@
-import { useTodo } from "@repo/hooks/todo";
+import { useTodoStore } from "@repo/store/todo";
 import { TodoItem } from "@repo/ui/components/todo";
 import { TodoWrite } from "@repo/ui/components/todo/TodoWrite";
 import { PropsWithChildren, useEffect } from "react";
@@ -6,7 +6,9 @@ import { PropsWithChildren, useEffect } from "react";
 interface TodoListProps {}
 
 export function TodoList({ children }: PropsWithChildren<TodoListProps>) {
-  const { fetchTodo, todo, deleteTodo, createTodo, updateTodo } = useTodo();
+  //const { fetchTodo, todo, deleteTodo, createTodo, updateTodo } = useTodo();
+  const { fetchTodo, todo, deleteTodo, createTodo, updateTodo } =
+    useTodoStore();
 
   useEffect(() => {
     fetchTodo();

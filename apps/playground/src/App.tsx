@@ -1,4 +1,4 @@
-import { useCounterStore } from "@repo/store/zustand";
+import { useCounterStore } from "@repo/store/counter";
 import { Counter } from "@repo/ui/components/counter";
 import { TodoList } from "@repo/ui/components/todo";
 

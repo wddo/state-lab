@@ -28,6 +28,7 @@ export function TodoWrite({ onCreate }: TodoWriteProps) {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          onBlur={handleSubmit}
           onKeyDown={handleKeyDown}
           placeholder="할 일을 입력하세요"
           className="h-full w-full p-2 text-black"
