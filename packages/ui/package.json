@@ -11,5 +11,8 @@
     "@repo/config": "workspace:*",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4"
+  },
+  "dependencies": {
+    "jotai": "^2.12.3"
   }
 }

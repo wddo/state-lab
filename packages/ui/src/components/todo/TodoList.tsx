@@ -1,27 +1,32 @@
-import { useTodo } from "@repo/hooks/todo";
+import { fetchTodoAtom, todoActionAtom, todoAtom } from "@repo/store/todo";
 import { TodoItem } from "@repo/ui/components/todo";
 import { TodoWrite } from "@repo/ui/components/todo/TodoWrite";
+import { useAtomValue, useSetAtom } from "jotai";
 import { PropsWithChildren, useEffect } from "react";
 
 interface TodoListProps {}
 
 export function TodoList({ children }: PropsWithChildren<TodoListProps>) {
-  const { fetchTodo, todo, deleteTodo, createTodo, updateTodo } = useTodo();
+  // const { fetchTodo, todo, deleteTodo, createTodo, updateTodo } = useTodo();
+
+  const todo = useAtomValue(todoAtom);
+  const fetchTodo = useSetAtom(fetchTodoAtom);
+  const dispatch = useSetAtom(todoActionAtom);
 
   useEffect(() => {
     fetchTodo();
   }, []);
 
   const handleDelete = (id: string) => {
-    deleteTodo(id);
+    dispatch({ type: "delete", id });
   };
 
   const handleCreate = (title: string) => {
-    createTodo(title);
+    dispatch({ type: "create", title });
   };
 
   const handleUpdate = (id: string, title: string) => {
-    updateTodo(id, title);
+    dispatch({ type: "update", id, title });
   };
 
   return (
