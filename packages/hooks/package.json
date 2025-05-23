@@ -1,11 +1,15 @@
 {
-  "name": "@repo/hook",
+  "name": "@repo/hooks",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "@repo/api": "workspace:*"
+    "@repo/api": "workspace:*",
+    "@repo/store": "workspace:*"
   },
   "peerDependencies": {
     "@types/react": "^19.0.10"
+  },
+  "dependencies": {
+    "jotai": "^2.12.3"
   }
 }

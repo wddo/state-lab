@@ -1,41 +1,27 @@
-import {
-  createTodoApi,
-  deleteTodoByIdApi,
-  fetchTodoApi,
-  TodoData,
-  updateTodoByIdApi,
-} from "@repo/api/todo";
-import { useState } from "react";
+import { fetchTodoApi, TodoData } from "@repo/api/todo";
+import { fetchTodoAtom, todoActionAtom, todoAtom } from "@repo/store/todo";
+import { useQuery } from "@tanstack/react-query";
+import { useAtomValue, useSetAtom } from "jotai";
+
+export const useTodoQuery = () => {
+  return useQuery<TodoData[]>({
+    queryKey: ["todo"],
+    queryFn: fetchTodoApi,
+    staleTime: 1000 * 10,
+  });
+};
 
 export const useTodo = () => {
-  const [todo, setTodo] = useState<TodoData[]>([]);
-
-  const fetchTodo = async () => {
-    const data = await fetchTodoApi();
-
-    setTodo(data);
-  };
-
-  const createTodo = async (title: string) => {
-    await createTodoApi(title);
-    await fetchTodo();
-  };
-
-  const deleteTodo = async (id: string) => {
-    await deleteTodoByIdApi(id);
-    await fetchTodo();
-  };
-
-  const updateTodo = async (id: string, title: string) => {
-    await updateTodoByIdApi(id, title);
-    await fetchTodo();
-  };
+  const todo = useAtomValue(todoAtom);
+  const fetchTodo = useSetAtom(fetchTodoAtom);
+  const dispatch = useSetAtom(todoActionAtom);
 
   return {
     todo,
     fetchTodo,
-    createTodo,
-    deleteTodo,
-    updateTodo,
+    createTodo: (title: string) => dispatch({ type: "create", title }),
+    deleteTodo: (id: string) => dispatch({ type: "delete", id }),
+    updateTodo: (id: string, title: string) =>
+      dispatch({ type: "update", id, title }),
   };
 };
