@@ -1,12 +1,9 @@
-import { countAtom, incrementAtom, resetAtom } from "@repo/store/counter";
+import { useCounter } from "@repo/hooks";
 import { Counter } from "@repo/ui/components/counter";
 import { TodoList } from "@repo/ui/components/todo";
-import { useAtomValue, useSetAtom } from "jotai";
 
 function App() {
-  const count = useAtomValue(countAtom);
-  const increment = useSetAtom(incrementAtom);
-  const reset = useSetAtom(resetAtom);
+  const { count, increment, reset } = useCounter();
 
   return (
     <div className="space-y-4">

@@ -1,2 +1,2 @@
-export * from "./counter";
-export * from "./todo";
+export * from "./counter.jotai";
+export * from "./todo.jotai";
