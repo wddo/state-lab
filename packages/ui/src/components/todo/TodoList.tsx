@@ -11,9 +11,9 @@ export function TodoList({ children }: PropsWithChildren<TodoListProps>) {
     isStale,
     isLoading,
     isError,
-    create,
-    update,
-    remove,
+    createTodo,
+    updateTodo,
+    deleteTodo,
     refetch,
     isFetching,
   } = useTodo();
@@ -22,15 +22,15 @@ export function TodoList({ children }: PropsWithChildren<TodoListProps>) {
   if (isError) return <div>Error</div>;
 
   const handleDelete = (id: string) => {
-    remove(id);
+    deleteTodo(id);
   };
 
   const handleCreate = (title: string) => {
-    create(title);
+    createTodo(title);
   };
 
   const handleUpdate = (id: string, title: string) => {
-    update({ id, title });
+    updateTodo({ id, title });
   };
 
   return (

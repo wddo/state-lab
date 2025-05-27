@@ -54,13 +54,13 @@ export const useTodo = () => {
 
   return {
     todo,
+    createTodo: create.mutate,
+    deleteTodo: remove.mutate,
+    updateTodo: update.mutate,
     isLoading,
     isError,
     isStale,
     isFetching,
     refetch,
-    create: create.mutate,
-    update: update.mutate,
-    remove: remove.mutate,
   };
 };
