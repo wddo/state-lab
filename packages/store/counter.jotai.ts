@@ -1,5 +1,7 @@
 import { atom } from "jotai";
 
+export const nameAtom = atom("jotai");
+
 export const countAtom = atom(0);
 
 export const incrementAtom = atom(null, (get, set) => {
