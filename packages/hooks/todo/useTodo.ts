@@ -5,37 +5,62 @@ import {
   TodoData,
   updateTodoByIdApi,
 } from "@repo/api/todo";
-import { useState } from "react";
+import { TODO_QUERY_KEY } from "@repo/data/constants";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const useTodo = () => {
-  const [todo, setTodo] = useState<TodoData[]>([]);
+  const queryClient = useQueryClient();
 
-  const fetchTodo = async () => {
-    const data = await fetchTodoApi();
+  const {
+    data: todo,
+    isLoading,
+    isError,
+    isStale,
+    isFetching,
+    refetch,
+  } = useQuery<TodoData[]>({
+    queryKey: [TODO_QUERY_KEY],
+    queryFn: async () => {
+      await sleep(1000); // 개발 테스트용
+      return await fetchTodoApi();
+    },
+    staleTime: 1000 * 10,
+    refetchOnWindowFocus: false, // 개발 테스트용 자동 리패치 방지
+  });
 
-    setTodo(data);
-  };
+  const create = useMutation({
+    mutationFn: (title: string) => createTodoApi(title),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [TODO_QUERY_KEY] });
+    },
+  });
 
-  const createTodo = async (title: string) => {
-    await createTodoApi(title);
-    await fetchTodo();
-  };
+  const update = useMutation({
+    mutationFn: ({ id, title }: { id: string; title: string }) =>
+      updateTodoByIdApi(id, title),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [TODO_QUERY_KEY] });
+    },
+  });
 
-  const deleteTodo = async (id: string) => {
-    await deleteTodoByIdApi(id);
-    await fetchTodo();
-  };
-
-  const updateTodo = async (id: string, title: string) => {
-    await updateTodoByIdApi(id, title);
-    await fetchTodo();
-  };
+  const remove = useMutation({
+    mutationFn: (id: string) => deleteTodoByIdApi(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [TODO_QUERY_KEY] });
+    },
+  });
 
   return {
     todo,
-    fetchTodo,
-    createTodo,
-    deleteTodo,
-    updateTodo,
+    createTodo: create.mutate,
+    deleteTodo: remove.mutate,
+    updateTodo: update.mutate,
+    isLoading,
+    isError,
+    isStale,
+    isFetching,
+    refetch,
   };
 };

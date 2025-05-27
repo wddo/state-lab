@@ -1,11 +1,18 @@
 {
-  "name": "@repo/hook",
+  "name": "@repo/hooks",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "@repo/api": "workspace:*"
+    "@repo/api": "workspace:*",
+    "@repo/data": "workspace:*",
+    "@repo/store": "workspace:*"
   },
   "peerDependencies": {
     "@types/react": "^19.0.10"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.76.2",
+    "jotai": "^2.12.3",
+    "react-router-dom": "^7.6.1"
   }
 }
