@@ -4,7 +4,8 @@
   "private": true,
   "devDependencies": {
     "@repo/api": "workspace:*",
-    "@repo/store": "workspace:*"
+    "@repo/store": "workspace:*",
+    "@repo/data": "workspace:*"
   },
   "peerDependencies": {
     "@types/react": "^19.0.10"
