@@ -23,11 +23,10 @@ export const useTodo = () => {
   } = useQuery<TodoData[]>({
     queryKey: [TODO_QUERY_KEY],
     queryFn: async () => {
-      await sleep(1000); // 개발 테스트용
+      if (process.env.NODE_ENV === "development") await sleep(1000); // 개발 테스트용
       return await fetchTodoApi();
     },
     staleTime: 1000 * 10,
-    refetchOnWindowFocus: false, // 개발 테스트용 자동 리패치 방지
   });
 
   const create = useMutation({
