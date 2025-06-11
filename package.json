@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "turbo run dev",
     "dev:server": "pnpm --filter server start",
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:dev": "turbo run test:dev"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
