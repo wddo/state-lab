@@ -39,6 +39,7 @@ export function TodoWrite({ onCreate }: TodoWriteProps) {
         <button
           type="button"
           className="flex size-8 items-center justify-center bg-green-500 p-1 text-white"
+          aria-label="추가"
           onClick={handleSubmit}
         >
           ✔
