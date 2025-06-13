@@ -61,6 +61,7 @@ export function TodoItem(props: TodoItemProps) {
           type="button"
           className="flex size-8 shrink-0 items-center justify-center p-1"
           onClick={handleDeleteClick}
+          aria-label="삭제"
         >
           ❌
         </button>
