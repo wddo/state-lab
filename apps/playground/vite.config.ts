@@ -3,9 +3,11 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
 
+const isGitHub = process.env.VITE_DEPLOY_TARGET === "github";
+
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/state-lab/",
+  base: isGitHub ? "/state-lab/" : "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: [
