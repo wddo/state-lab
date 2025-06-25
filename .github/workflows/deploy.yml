@@ -43,7 +43,7 @@ jobs:
         run: pnpm test
 
       - name: Build
-        run: pnpm turbo run build --filter=playground
+        run: VITE_DEPLOY_TARGET=github pnpm turbo run build --filter=playground
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
