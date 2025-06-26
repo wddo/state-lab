@@ -1,0 +1,20 @@
+{
+  "name": "vercel-api",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@repo/data": "workspace:*",
+    "@upstash/redis": "^1.28.4",
+    "@vercel/node": "^3.0.0"
+  },
+  "devDependencies": {
+    "vercel": "^28.0.0",
+    "@types/node": "^22.14.1",
+    "typescript": "~5.7.2"
+  }
+}
