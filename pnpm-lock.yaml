@@ -93,9 +93,6 @@ importers:
 
   apps/vercel-api:
     dependencies:
-      '@repo/data':
-        specifier: workspace:*
-        version: link:../../packages/data
       '@upstash/redis':
         specifier: ^1.28.4
         version: 1.35.0

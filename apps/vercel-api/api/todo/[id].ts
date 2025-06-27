@@ -1,5 +1,6 @@
-import { TODO_QUERY_KEY } from "@repo/data/constants";
-import { errorResponse, extractId, jsonResponse, redis } from "../../utils";
+import { errorResponse, extractId, jsonResponse, redis } from "../../utils/index.js";
+
+const TODO_QUERY_KEY = "todos";
 
 export async function PUT(req: Request) {
   try {
@@ -8,7 +9,7 @@ export async function PUT(req: Request) {
       return errorResponse("Todo ID is required", 400);
     }
 
-    const body = await req.json();
+    const body = (await req.json()) as { title: string };
     const { title } = body;
 
     if (!title) {

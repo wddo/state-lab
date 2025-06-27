@@ -1,5 +1,6 @@
-import { TODO_QUERY_KEY } from "@repo/data/constants";
-import { errorResponse, jsonResponse, redis } from "../utils";
+import { errorResponse, jsonResponse, redis } from "../utils/index.js";
+
+const TODO_QUERY_KEY = "todos";
 
 export async function GET() {
   try {
@@ -13,7 +14,7 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    const body = (await req.json()) as { title: string };
     const { title } = body;
 
     if (!title) {
