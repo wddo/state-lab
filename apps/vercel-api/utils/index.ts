@@ -21,7 +21,7 @@ export function errorResponse(message: string, status: number) {
   });
 }
 
-// JSON 응답 헬퍼 함수 (데이터 또는 메시지)
+// JSON 응답 헬퍼 함수
 export function jsonResponse<T>(data: T, status: number = 200) {
   const response = typeof data === "string" ? { message: data } : data;
   return new Response(JSON.stringify(response), {
