@@ -118,7 +118,11 @@ importers:
 
   packages/config: {}
 
-  packages/data: {}
+  packages/data:
+    devDependencies:
+      '@types/node':
+        specifier: ^22.14.1
+        version: 22.14.1
 
   packages/hooks:
     dependencies:
