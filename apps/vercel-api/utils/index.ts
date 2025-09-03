@@ -1,9 +1,10 @@
 import { Redis } from "@upstash/redis";
+import { TodoData } from "@repo/api/todo/todoAPI";
 
 // Redis 인스턴스
 export const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+  url: process.env.KV_REST_API_URL!,
+  token: process.env.KV_REST_API_TOKEN!,
 });
 
 // 공통 헤더 설정
@@ -23,14 +24,19 @@ export function errorResponse(message: string, status: number) {
 
 // JSON 응답 헬퍼 함수
 export function jsonResponse<T>(data: T, status: number = 200) {
-  const response = typeof data === "string" ? { message: data } : data;
-  return new Response(JSON.stringify(response), {
+  // null 이면 No Content
+  const headers =
+    data === null
+      ? corsHeaders
+      : { ...corsHeaders, "Content-Type": "application/json" };
+
+  return new Response(data === null ? null : JSON.stringify(data), {
     status,
-    headers: { ...corsHeaders, "Content-Type": "application/json" },
+    headers,
   });
 }
 
-// ID 추출 헬퍼 함수
-export function extractId(req: Request): string | null {
-  return req.url.split("/").pop() || null;
+// ID로 todo의 인덱스를 찾는 헬퍼 함수
+export function findTodoIndexById(todos: TodoData[], id: string): number {
+  return todos.findIndex((todo: TodoData) => todo.id === id);
 }
