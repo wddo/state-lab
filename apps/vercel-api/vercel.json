@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/todos",
+      "destination": "/api/todos"
+    },
+    {
+      "source": "/todos/:id",
+      "destination": "/api/todos/[id].ts"
+    }
+  ]
+}

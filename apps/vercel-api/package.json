@@ -3,7 +3,11 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "scripts": {
+    "start": "vercel dev --listen 5001"
+  },
   "dependencies": {
+    "@repo/api": "workspace:*",
     "@upstash/redis": "^1.28.4",
     "@vercel/node": "^3.0.0"
   },
