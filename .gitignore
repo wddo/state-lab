@@ -11,3 +11,7 @@ dist/
 
 # server
 db.json
+.vercel
+
+# environments
+.env.*
