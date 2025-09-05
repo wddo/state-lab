@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "dev:json": "pnpm --filter json-server start",
-    "dev:server": "pnpm --filter server start",
+    "dev:server": "vercel dev --listen 5001",
     "build": "turbo run build",
     "test": "turbo run test",
     "test:dev": "turbo run test:dev"
