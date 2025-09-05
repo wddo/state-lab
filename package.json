@@ -5,8 +5,8 @@
   "packageManager": "pnpm@8.14.1",
   "scripts": {
     "dev": "turbo run dev",
+    "dev:json": "pnpm --filter json-server start",
     "dev:server": "pnpm --filter server start",
-    "dev:api": "pnpm --filter vercel-api start",
     "build": "turbo run build",
     "test": "turbo run test",
     "test:dev": "turbo run test:dev"

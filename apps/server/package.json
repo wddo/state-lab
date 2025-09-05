@@ -4,9 +4,15 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "start": "json-server --watch db.json --port 5001"
+    "start": "vercel dev --listen 5001"
+  },
+  "dependencies": {
+    "@repo/api": "workspace:*",
+    "@upstash/redis": "^1.28.4",
+    "@vercel/node": "^3.0.0"
   },
   "devDependencies": {
-    "json-server": "1.0.0-beta.3"
+    "@types/node": "^22.14.1",
+    "typescript": "~5.7.2"
   }
 }

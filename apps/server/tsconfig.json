@@ -8,6 +8,6 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["pages/api/**/*", "utils/**/*"],
+  "include": ["api/**/*", "utils/**/*"],
   "exclude": ["node_modules"]
 }
